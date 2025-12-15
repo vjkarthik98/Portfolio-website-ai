@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-pinecone-client
-requests
-sentence-transformers
-python-multipart
