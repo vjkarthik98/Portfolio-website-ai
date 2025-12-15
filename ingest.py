@@ -1,10 +1,16 @@
 import os
 from pinecone import Pinecone
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 
-# CONFIGURATION
-PINECONE_API_KEY = "pcsk_2y6Jxe_KzAS9v4MFjLBAeKDgwMBWtgibqXhA9VAsLbg4ibrr5GvrqJSMrSjMbmt8QPeDPR"
+# 1. Load keys from .env file
+load_dotenv() 
+
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY") 
 INDEX_NAME = "portfolio-website"
+
+if not PINECONE_API_KEY:
+    raise ValueError("PINECONE_API_KEY not found. Please check your .env file.")
 
 # 1. Initialize
 print("Initializing...")
